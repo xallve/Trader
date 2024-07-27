@@ -1,0 +1,10 @@
+django
+redis
+celery
+channels
+channels_redis
+djangorestframework
+tradingview_ta
+psycopg2-binary
+gunicorn
+uvicorn
