@@ -11,7 +11,7 @@ services:
     image: "redis:alpine"
   web:
     build: .
-    command: gunicorn trading_app.trading_app.asgi:application --bind 0.0.0.0:8000 -k uvicorn.workers.UvicornWorker
+    command: gunicorn trading_app.asgi:application --bind 0.0.0.0:8000 -k uvicorn.workers.UvicornWorker
     volumes:
       - .:/app
     ports:
@@ -22,7 +22,7 @@ services:
       - redis
   celery:
     build: .
-    command: celery -A trading_app.trading_app worker --loglevel=info
+    command: celery -A trading_app worker --loglevel=info
     volumes:
       - .:/app
     depends_on:
